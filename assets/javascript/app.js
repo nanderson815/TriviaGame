@@ -1,16 +1,17 @@
 $(document).ready(function () {
 
-    var questions = {
-        q1: {
-            qustion: "This is text question one?",
-            a1: "Choice 1",
-            a2: "Choie 2",
-            a3: "Choice 3",
-            correctAnswer: "Correct Choice",
-        }
+    function Question(q, a1, a2, a3, a4) {
+        this.question = q
+        this.answer1 = a1;
+        this.answer2 = a2;
+        this.answer3 = a3;
+        this.answer4 = a4;
     }
 
-console.log(questions);
+   var firstQuestion = new Question("Question one?", "answer 1", "answer 2", "correct answer", "answer 4" );
+
+
+    console.log(firstQuestion);
 
 });
 
