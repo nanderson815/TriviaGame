@@ -9,9 +9,20 @@ $(document).ready(function () {
         this.currectAnswerNumber = arrayNumber;
     }
 
-    var firstQuestion = new Question("Who played Noah in the movie 'The Notebook'?",
+
+
+    var question0 = new Question("Who played Noah in the movie 'The Notebook'?",
         "Colin Ferrell", "Danny Devito", "Ryan Gossling", "Brad Pitt", 2);
-    pushQuestions(firstQuestion);
+
+    var question1 = new Question("What is Brennan's special talent in the movie 'Step Brothers'?",
+        "Dancing", "Kissing", "Dog Training", "Singing", 3);
+
+    var question2 = new Question("In what city does the crime thriller 'Black Mass' about the life of the infamous Whitey Bulger take place?",
+        "Chicago", "Boston", "New York", "Los Angeles", 1);
+
+    var questionList = [
+        question0, question1, question2
+    ];
 
     function pushQuestions(questionNumber) {
         $("#question").html(questionNumber.question);
@@ -22,17 +33,29 @@ $(document).ready(function () {
 
     }
 
+    var i = 0;
+    var clickedValue;
+
+    // console.log(questionList[i]);
+    pushQuestions(questionList[i]);
+
     $('#a1, #a2, #a3, #a4').on("click", function () {
-        console.log(firstQuestion.currectAnswerNumber);
-        console.log(this.value);
-        if (this.value == firstQuestion.currectAnswerNumber) {
-            alert("That is correct!")
-        } else {
-            alert("Wrong Answer, try again!")
-        }
+        clickedValue = this.value;
+        questionLogic(question0);
     });
 
-    console.log(firstQuestion);
+    function questionLogic(questionNumber) {
+        if (clickedValue == questionNumber.currectAnswerNumber) {
+            alert("That is correct!")
+
+        } else {
+            alert("Your Wrong MOFO")
+        }
+    }
+
+
+
+
 
 });
 
