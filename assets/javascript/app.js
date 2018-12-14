@@ -33,6 +33,8 @@ $(document).ready(function () {
 
     }
 
+    var wins = 0;
+    var losses = 0;
     var i = 0;
     var clickedValue;
 
@@ -41,15 +43,22 @@ $(document).ready(function () {
 
     $('#a1, #a2, #a3, #a4').on("click", function () {
         clickedValue = this.value;
-        questionLogic(question0);
+        questionLogic(questionList[i]);
     });
 
     function questionLogic(questionNumber) {
         if (clickedValue == questionNumber.currectAnswerNumber) {
-            alert("That is correct!")
+            wins++;
+            $(".wins").text(wins);
+            i++;
+            pushQuestions(questionList[i]);
 
         } else {
-            alert("Your Wrong MOFO")
+            losses++;
+            $(".losses").text(losses);
+            i++;
+            pushQuestions(questionList[i]);
+
         }
     }
 
