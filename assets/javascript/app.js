@@ -9,8 +9,8 @@ $(document).ready(function () {
         this.currectAnswerNumber = arrayNumber;
     }
 
-    var firstQuestion = new Question("Question one?",
-        "answer 1", "answer 2", "correct answer", "answer 4", 2);
+    var firstQuestion = new Question("Who played Noah in the movie 'The Notebook'?",
+        "Colin Ferrell", "Danny Devito", "Ryan Gossling", "Brad Pitt", 2);
     pushQuestions(firstQuestion);
 
     function pushQuestions(questionNumber) {
@@ -23,7 +23,13 @@ $(document).ready(function () {
     }
 
     $('#a1, #a2, #a3, #a4').on("click", function () {
+        console.log(firstQuestion.currectAnswerNumber);
         console.log(this.value);
+        if (this.value == firstQuestion.currectAnswerNumber) {
+            alert("That is correct!")
+        } else {
+            alert("Wrong Answer, try again!")
+        }
     });
 
     console.log(firstQuestion);
