@@ -21,28 +21,28 @@ $(document).ready(function () {
         "Chicago", "Boston", "New York", "Los Angeles", 1);
 
     var question3 = new Question("In the 2009 film 'Inglourious Basterds', Hans Landa has a reputation for hunting what?",
-    "Jews", "Wolfs", "Nazis", "Fugitives", 0);
+        "Jews", "Wolfs", "Nazis", "Fugitives", 0);
 
     var question4 = new Question("Wall Street guru Michael Burry makes a fortune purchasing what security in the movie 'The Big Short'?",
-    "AAA Rated Corporate Bonds", "Penny Stocks", "Mortgage Backed Securities", "Credit Default Swaps", 3);
+        "AAA Rated Corporate Bonds", "Penny Stocks", "Mortgage Backed Securities", "Credit Default Swaps", 3);
 
     var question5 = new Question("The Wolf of Wall Street, AKA Jordan Belfort, is best categorized as a what?",
-    "Genius", "Fraudster and Drug Addict", "Family Man", "Innovator", 1);
+        "Genius", "Fraudster and Drug Addict", "Family Man", "Innovator", 1);
 
     var question6 = new Question("In the film 'Django Unchained', Dr. King Schultz is in what profession?",
-    "Optometry", "Dentistry", "Law", "Finance", 1);
+        "Optometry", "Dentistry", "Law", "Finance", 1);
 
     var question7 = new Question("Andrew, the main character in the movie Whiplash, plays what instrument?",
-    "Piano", "Chello", "Bass Guitar", "Drums", 3);
+        "Piano", "Chello", "Bass Guitar", "Drums", 3);
 
     var question8 = new Question("In The Life of Pi, Pi shares his life raft with what?",
-    "A Tiger", "A Beaver", "A Dog", "A Racoon", 0);
+        "A Tiger", "A Beaver", "A Dog", "A Racoon", 0);
 
     var question9 = new Question("Baby, from the 2017 film 'Baby Driver', has what condition?",
-    "Schizophrenia", "Tinnitus", "Aids", "Night Terrors", 1);
+        "Schizophrenia", "Tinnitus", "Aids", "Night Terrors", 1);
 
     var questionList = [
-        question0, question1, question2, question3, question4, question5, question6, question7, question8, question9 
+        question0, question1, question2, question3, question4, question5, question6, question7, question8, question9
     ];
 
     function pushQuestions(questionNumber) {
@@ -63,6 +63,7 @@ $(document).ready(function () {
     pushQuestions(questionList[i]);
 
     $('#a1, #a2, #a3, #a4').on("click", function () {
+
         clickedValue = this.value;
         questionLogic(questionList[i]);
     });
@@ -72,14 +73,21 @@ $(document).ready(function () {
             wins++;
             $(".wins").text(wins);
             i++;
-            pushQuestions(questionList[i]);
+            if (i < 10) {
+                pushQuestions(questionList[i]);
+            } else {
+                alert("Game Over! You got " + wins + " questions correct!");
+            }
 
         } else {
             losses++;
             $(".losses").text(losses);
             i++;
-            pushQuestions(questionList[i]);
-
+            if (i < 10) {
+                pushQuestions(questionList[i]);
+            } else {
+                alert("Game Over! You got " + wins + " questions correct!");
+            }
         }
     }
 
