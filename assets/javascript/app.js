@@ -59,8 +59,22 @@ $(document).ready(function () {
     var i = 0;
     var clickedValue;
 
-    // console.log(questionList[i]);
+    var timer = 30;
+
+    function resetTimer() {
+        timer = 30;
+        $("#timeRemaining").html(timer);
+    }
+
     pushQuestions(questionList[i]);
+
+    setInterval(count, 1000);
+
+    function count() {
+        timer--;
+        $("#timeRemaining").html(timer);
+    }
+
 
     $('#a1, #a2, #a3, #a4').on("click", function () {
 
@@ -71,6 +85,7 @@ $(document).ready(function () {
     function questionLogic(questionNumber) {
         if (clickedValue == questionNumber.currectAnswerNumber) {
             wins++;
+            resetTimer();
             $(".wins").text(wins);
             i++;
             if (i < 10) {
@@ -81,6 +96,7 @@ $(document).ready(function () {
 
         } else {
             losses++;
+            resetTimer();
             $(".losses").text(losses);
             i++;
             if (i < 10) {
