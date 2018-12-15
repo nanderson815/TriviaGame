@@ -27,7 +27,7 @@ $(document).ready(function () {
         "AAA Rated Corporate Bonds", "Penny Stocks", "Mortgage Backed Securities", "Credit Default Swaps", 3);
 
     var question5 = new Question("The Wolf of Wall Street, AKA Jordan Belfort, is best categorized as a what?",
-        "Genius", "Fraudster and Drug Addict", "Family Man", "Innovator", 1);
+        "Genius", "Fraudster", "Family Man", "Innovator", 1);
 
     var question6 = new Question("In the film 'Django Unchained', Dr. King Schultz is in what profession?",
         "Optometry", "Dentistry", "Law", "Finance", 1);
