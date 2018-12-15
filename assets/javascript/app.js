@@ -66,13 +66,20 @@ $(document).ready(function () {
         $("#timeRemaining").html(timer);
     }
 
+
     pushQuestions(questionList[i]);
 
     setInterval(count, 1000);
 
     function count() {
-        timer--;
-        $("#timeRemaining").html(timer);
+        if (timer > 0) {
+            timer--;
+            $("#timeRemaining").html(timer);
+        }
+        if (timer == 0) {
+            clickedValue = null;
+            questionLogic(questionList[i]);
+        }
     }
 
 
@@ -92,6 +99,7 @@ $(document).ready(function () {
                 pushQuestions(questionList[i]);
             } else {
                 alert("Game Over! You got " + wins + " questions correct!");
+                $("#timeRemaining").hide();
             }
 
         } else {
@@ -103,6 +111,8 @@ $(document).ready(function () {
                 pushQuestions(questionList[i]);
             } else {
                 alert("Game Over! You got " + wins + " questions correct!");
+                $("#timeRemaining").hide();
+
             }
         }
     }
