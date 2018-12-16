@@ -1,12 +1,15 @@
 
 body {
     font-family: 'Sanchez', serif;
+    background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/S5cKz0c8liy0pcki4/gray-old-grunge-film-background-video-loop-footage_r8nvlvtue_thumbnail-full01.png);
+    background-size: 100%;
 }
 
 .container {
-    margin:20px 10%;
-    border: 2px solid black;
+    margin:100px 12% 0px 12%;
     padding: 10px;
+    background: rgb(213, 209, 188, .6);
+    box-shadow: 0 0 5px 10px rgb(213, 209, 188, .5);
 }
 
 header{
@@ -39,7 +42,7 @@ h1 {
 	cursor: pointer;
 	padding: 10px 20px;
 	display: inline-block;
-	margin: 5px 10px;
+	margin: 10px 10px;
 	text-transform: uppercase;
 	font-weight: 700;
 	outline: none;
@@ -82,3 +85,4 @@ h1 {
 	box-shadow: 0 0 #ab3c3c;
 	top: 6px;
 }
+
