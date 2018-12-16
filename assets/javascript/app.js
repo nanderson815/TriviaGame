@@ -60,9 +60,18 @@ $(document).ready(function () {
     var losses = 0;
     var i = 0;
     var clickedValue;
+    var timer;
 
     // Timer variable
-    var timer = 30;
+    $("#startButton").on("click", function () {
+        timer = 30;
+        // interval to start the countdown timer on load
+        setInterval(count, 1000);
+        $("main").removeClass("hidden");
+        $("#startButton").hide();
+
+    });
+
 
     // Function to reset the value of the clock and push to DOM.
     function resetTimer() {
@@ -73,8 +82,7 @@ $(document).ready(function () {
     // Push the first question on load.
     pushQuestions(questionList[i]);
 
-    // interval to start the countdown timer on load
-    setInterval(count, 1000);
+
 
     // Function that counts down by 1 if timer is above zero, or sends the next question if time expires. 
     // ClickedValue to null ensures that time expired is counted as a loss.
