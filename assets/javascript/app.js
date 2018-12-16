@@ -97,6 +97,14 @@ $(document).ready(function () {
         }
     }
 
+    function gameOver() {
+        $("#question").text("Game Over! You got " + wins + " questions correct!");
+        $("#answers").hide();
+        $("#timeRemaining").hide();
+        $("#restartButton").removeClass("hidden");
+        $("#restartButton").addClass("btn btn-2 btn-2g");
+
+    }
 
     $('#a1, #a2, #a3, #a4').on("click", function () {
 
@@ -113,9 +121,7 @@ $(document).ready(function () {
             if (i < 10) {
                 pushQuestions(questionList[i]);
             } else {
-                $("#question").text("Game Over! You got " + wins + " questions correct!");
-                $("#answers").hide();
-                $("#timeRemaining").hide();
+                gameOver();
             }
 
         } else {
@@ -126,15 +132,15 @@ $(document).ready(function () {
             if (i < 10) {
                 pushQuestions(questionList[i]);
             } else {
-                $("#question").text("Game Over! You got " + wins + " questions correct!");
-                $("#answers").hide();
-                $("#timeRemaining").hide();
+                gameOver();
 
             }
         }
     }
 
-
+    $("#restartButton").click(function () {
+        location.reload();
+    });
 
 
 

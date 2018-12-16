@@ -12,6 +12,10 @@ body {
     box-shadow: 0 0 5px 10px rgb(213, 209, 188, .5);
 }
 
+#startButton {
+    margin: 50px 0px 0px 0px;
+}
+
 .hidden{
     display: none;
 }
@@ -36,7 +40,7 @@ h1 {
     text-align: center;
 }
 
-#wrapper {
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,6 +65,7 @@ h1 {
 	-moz-transition: all 0.3s;
     transition: all 0.3s;
     width: 300px;
+    max-width: 90%;
 }
 
 .btn:after {
