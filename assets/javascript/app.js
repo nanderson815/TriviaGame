@@ -105,7 +105,8 @@ $(document).ready(function () {
             if (i < 10) {
                 pushQuestions(questionList[i]);
             } else {
-                alert("Game Over! You got " + wins + " questions correct!");
+                $("#question").text("Game Over! You got " + wins + " questions correct!");
+                $("#answers").hide();
                 $("#timeRemaining").hide();
             }
 
@@ -117,7 +118,8 @@ $(document).ready(function () {
             if (i < 10) {
                 pushQuestions(questionList[i]);
             } else {
-                alert("Game Over! You got " + wins + " questions correct!");
+                $("#question").text("Game Over! You got " + wins + " questions correct!");
+                $("#answers").hide();
                 $("#timeRemaining").hide();
 
             }
