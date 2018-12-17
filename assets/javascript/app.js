@@ -25,7 +25,7 @@ $(document).ready(function () {
         "Jews", "Wolfs", "Nazis", "Fugitives", 0, "Jews");
 
     var question4 = new Question("Wall Street guru Michael Burry makes a fortune purchasing what security in the movie 'The Big Short'?",
-        "AAA Rated Corporate Bonds", "Penny Stocks", "Mortgage Backed Securities", "Credit Default Swaps", 3 ,"Credit Default Swaps");
+        "AAA Rated Corporate Bonds", "Penny Stocks", "Mortgage Backed Securities", "Credit Default Swaps", 3, "Credit Default Swaps");
 
     var question5 = new Question("The Wolf of Wall Street, AKA Jordan Belfort, is best categorized as a what?",
         "Genius", "Fraudster", "Family Man", "Innovator", 1, "Frauster");
@@ -64,6 +64,7 @@ $(document).ready(function () {
     var timer;
     var setTimer;
 
+    // Starts the game on click.
     $("#startButton").on("click", function () {
         // Timer variable
         timer = 30;
@@ -99,6 +100,7 @@ $(document).ready(function () {
         }
     }
 
+    // Function that ends the game after the last question is answered or left blank.
     function gameOver() {
         $("#question").text("Game Over! You got " + wins + " questions correct!");
         $("#answers").hide();
@@ -108,6 +110,7 @@ $(document).ready(function () {
 
     }
 
+    // Function to display the model after each answer.
     function displayModal(text) {
         modal = document.getElementById('myModal')
         modal.style.display = "block";
@@ -158,9 +161,19 @@ $(document).ready(function () {
         }
     }
 
-    // This needs to be fixed!!!! Do not reload the page to reset the game. 
+    // Resets the game without reloading the page. 
     $("#restartButton").click(function () {
-        location.reload();
+        wins = 0;
+        losses = 0;
+        i = 0;
+        pushQuestions(questionList[i]);
+        $(".losses").text(losses);
+        $(".wins").text(wins);
+        $("#answers").show();
+        $("#timeRemaining").show();
+        $("#restartButton").addClass("hidden");
+        $("#restartButton").removeClass("btn btn-2 btn-2g");
+
     });
 
 
