@@ -158,6 +158,7 @@ $(document).ready(function () {
         }
     }
 
+    // This needs to be fixed!!!! Do not reload the page to reset the game. 
     $("#restartButton").click(function () {
         location.reload();
     });
