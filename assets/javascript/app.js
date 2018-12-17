@@ -62,8 +62,8 @@ $(document).ready(function () {
     var clickedValue;
     var timer;
 
-    // Timer variable
     $("#startButton").on("click", function () {
+        // Timer variable
         timer = 30;
         // interval to start the countdown timer on load
         setInterval(count, 1000);
