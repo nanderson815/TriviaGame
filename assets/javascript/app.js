@@ -75,7 +75,7 @@ $(document).ready(function () {
 
     // Function to reset the value of the clock and push to DOM.
     function resetTimer() {
-        timer = 30;
+        timer = 33;
         $("#timeRemaining").html(timer);
     }
 
@@ -91,7 +91,7 @@ $(document).ready(function () {
             timer--;
             $("#timeRemaining").html(timer);
         }
-        if (timer == 0) {
+        if (timer === 0) {
             clickedValue = null;
             questionLogic(questionList[i]);
         }
@@ -126,11 +126,11 @@ $(document).ready(function () {
     function questionLogic(questionNumber) {
         if (clickedValue == questionNumber.currectAnswerNumber) {
             wins++;
-            resetTimer();
             $(".wins").text(wins);
             i++;
             displayModal("Thats correct!");
             setTimeout(hideModal, 3000);
+            setTimeout(resetTimer, 3000);
             if (i < 10) {
                 pushQuestions(questionList[i]);
             } else {
@@ -139,9 +139,12 @@ $(document).ready(function () {
 
         } else {
             losses++;
-            resetTimer();
             $(".losses").text(losses);
             i++;
+            displayModal("Wrong! The correct answer is: " + questionList[i]);
+            console.log(questionList[i]);
+            setTimeout(hideModal, 3000);
+            resetTimer();
             if (i < 10) {
                 pushQuestions(questionList[i]);
             } else {
