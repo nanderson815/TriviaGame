@@ -62,12 +62,13 @@ $(document).ready(function () {
     var i = 0;
     var clickedValue;
     var timer;
+    var setTimer;
 
     $("#startButton").on("click", function () {
         // Timer variable
         timer = 30;
         // interval to start the countdown timer on load
-        setInterval(count, 1000);
+        setTimer = setInterval(count, 1000);
         $("main").removeClass("hidden");
         $("#startButton").hide();
 
@@ -76,7 +77,7 @@ $(document).ready(function () {
 
     // Function to reset the value of the clock and push to DOM.
     function resetTimer() {
-        timer = 33;
+        timer = 30;
         $("#timeRemaining").html(timer);
     }
 
@@ -116,6 +117,7 @@ $(document).ready(function () {
     function hideModal() {
         modal = document.getElementById('myModal')
         modal.style.display = "none";
+        setTimer = setInterval(count, 1000);
     }
 
     $('#a1, #a2, #a3, #a4').on("click", function () {
@@ -129,6 +131,7 @@ $(document).ready(function () {
             wins++;
             $(".wins").text(wins);
             i++;
+            clearInterval(setTimer);
             displayModal("Thats correct!");
             setTimeout(hideModal, 3000);
             resetTimer();
@@ -141,6 +144,7 @@ $(document).ready(function () {
         } else {
             losses++;
             $(".losses").text(losses);
+            clearInterval(setTimer);
             displayModal("Wrong! The correct answer is: " + questionList[i].correctAnswer);
             i++;
             setTimeout(hideModal, 3000);
