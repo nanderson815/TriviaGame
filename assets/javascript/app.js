@@ -106,6 +106,17 @@ $(document).ready(function () {
 
     }
 
+    function displayModal(text) {
+        modal = document.getElementById('myModal')
+        modal.style.display = "block";
+        $("#modalText").text(text);
+    }
+
+    function hideModal() {
+        modal = document.getElementById('myModal')
+        modal.style.display = "none";
+    }
+
     $('#a1, #a2, #a3, #a4').on("click", function () {
 
         clickedValue = this.value;
@@ -118,6 +129,8 @@ $(document).ready(function () {
             resetTimer();
             $(".wins").text(wins);
             i++;
+            displayModal("Thats correct!");
+            setTimeout(hideModal, 3000);
             if (i < 10) {
                 pushQuestions(questionList[i]);
             } else {
